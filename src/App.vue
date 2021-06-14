@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-body">
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -11,17 +11,17 @@
       <span class="material-icons">pets</span>
     </header>
 
-    <main class="flex justify-center">
-      <img v-bind:src="imageURL" class="dogpic" />
+    <main>
+      <img v-bind:src="imageURL" class="dogpic" loading="lazy" />
     </main>
 
     <div class="button-main">
       <button class="button-cancel" @click="fetchDoggo">
-        <span class="material-icons cancel-icon">close</span>
+        <i class="material-icons cancel-icon">close</i>
       </button>
 
       <button class="button-like" @click="likedDogs">
-        <span class="material-icons like-icon">favorite</span>
+        <i class="material-icons like-icon">favorite</i>
       </button>
     </div>
 
@@ -31,11 +31,13 @@
       <span class="material-icons">pets</span>
     </header>
 
-    <ul class="likedDogs">
-      <li v-for="url in likedURL" v-bind:key="url">
-        <img v-bind:src="url" class="doglist" />
-      </li>
-    </ul>
+    <div class="dog-list">
+      <ul class="likedDogs">
+        <li v-for="url in likedURL" v-bind:key="url" loading="lazy">
+          <img v-bind:src="url" class="dog-image" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
